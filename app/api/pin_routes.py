@@ -38,7 +38,7 @@ def create_pin():
                       image_filename = image_url)
         db.session.add(new_pin)
         db.session.commit()
-        # return redirect("/posts/all")
+
         return {'pin': new_pin.to_dict()}
 
     if form.errors:

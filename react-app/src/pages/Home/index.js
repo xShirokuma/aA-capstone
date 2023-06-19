@@ -10,8 +10,6 @@ const Home = () => {
   const user = state.session.user
   const pins = state.pins
 
-  console.log(pins);
-
   useEffect(() => {
     dispatch(getPinsThunk())
   }, [dispatch]);
