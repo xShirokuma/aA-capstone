@@ -1,0 +1,15 @@
+.signup-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-modal > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-modal form > label {
+  display: flex;
+  flex-direction: column;
+}

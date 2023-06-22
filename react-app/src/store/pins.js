@@ -202,7 +202,7 @@ const pinsReducer = (state=initialState, action) => {
       newState = { ...state }
       newState[pinId].comments = [ ...state[pinId].comments ]
       index = newState[pinId].comments.findIndex(comment => comment.id === action.comment.id)
-      delete newState[pinId].comments[index]
+      newState[pinId].comments.splice(index, 1)
       return newState
     default: 
       return state

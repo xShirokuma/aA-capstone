@@ -16,16 +16,6 @@ const Home = () => {
 
   return (
     <>
-      <div>{user && (
-        <NavLink to="/pin-builder">
-          Create a New Pin
-        </NavLink>
-      )}</div>
-      <div>{user && (
-        <NavLink to={`/${user.username}`}>
-          Profile
-        </NavLink>
-      )}</div>
       <PinTiles pins={pins} />
     </>
   )

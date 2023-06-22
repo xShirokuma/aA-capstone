@@ -1,0 +1,8 @@
+.pin-tile {
+  padding: 0px;
+  margin: 15px 10px;
+}
+
+.pin-tile img {
+  border-radius: var(--card_border_radius);
+}
