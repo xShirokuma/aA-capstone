@@ -6,9 +6,8 @@ from wtforms.validators import DataRequired, Length, NumberRange
 from ..utils.aws import ALLOWED_EXTENSIONS
 
 class PinForm(FlaskForm):
-    title = StringField("Name", validators=[DataRequired(), Length(max=255)])
+    title = StringField("Name")
     description = StringField("Description")
     link = StringField("Link")
-    image = FileField("Image File")
-    #, validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
+    image = FileField("Image File", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
     submit = SubmitField("Create Pin")

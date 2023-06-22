@@ -1,1 +1,19 @@
 /* TODO Add site wide styles */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:root {
+  --card_width: 250px;
+  --card_border_radius: 16px;
+  --row_increment: 10px;
+  --card_small: 26;
+  --card_medium: 33;
+  --card_large: 45;
+}
+
+/* * {
+  border: 1px solid red;
+} */

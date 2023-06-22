@@ -7,21 +7,25 @@ min_words = 1
 max_words = len(lorem_ipsum.split())
 word_list = lorem_ipsum.split()
 
+
 def seed_comments():
-    end = randint(min_words, max_words)
-    rand_word_list = word_list[:end]
-    comment_1 = Comment(
-        user_id = 1,
-        pin_id = 1,
-        text = ' '.join(rand_word_list)
-    )
-    db.session.add(comment_1)
-    db.session.commit()
+    pass
+    # end = randint(min_words, max_words)
+    # rand_word_list = word_list[:end]
+    # comment_1 = Comment(
+    #     user_id = 1,
+    #     pin_id = 1,
+    #     text = ' '.join(rand_word_list)
+    # )
+    # db.session.add(comment_1)
+    # db.session.commit()
+
 
 def undo_comments():
-    if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
-    else:
-        db.session.execute(text("DELETE FROM comments"))
-        
-    db.session.commit()
+    pass
+    # if environment == "production":
+    #     db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
+    # else:
+    #     db.session.execute(text("DELETE FROM comments"))
+
+    # db.session.commit()

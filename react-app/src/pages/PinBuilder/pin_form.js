@@ -56,7 +56,7 @@ const PinForm = ({ pin, formType }) => {
         <input
           type="file"
           onChange={(e) => setImage(e.target.files[0])}
-      />
+        />
       </label>
       <textarea 
         className="title"

@@ -1,0 +1,41 @@
+.pin-container {
+  display: flex;
+  margin: 0 auto;
+  width: 80vw;
+  max-height: 80vh;
+  border-radius: 32px 32px 32px 32px;
+  box-shadow: grey 0px 0px 12px;
+}
+
+.pin-half {
+  width: 50%;
+}
+
+.pin-image img {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  border-radius: 32px 0px 0px 32px;
+}
+
+.pin-text {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.new-comment-container > form {
+  display: flex;
+}

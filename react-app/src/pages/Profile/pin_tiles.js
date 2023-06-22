@@ -1,12 +1,13 @@
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 import { PinTile, OpenModalButton } from "../../components"
 import EditPinModal from "./edit_pin_modal"
+import "./Profile.css"
 
-const PinTiles = ({pins}) => {
+const PinTiles = ({ pins }) => {
   pins = Object.values(pins)
 
   return (
-    <>
+    <div className="feed-container">
       {pins?.map((pin) => (
         <div>
           <PinTile pin={pin} />
@@ -16,7 +17,7 @@ const PinTiles = ({pins}) => {
           />
         </div>
       ))}
-    </>
+    </div>
   )
 }
 

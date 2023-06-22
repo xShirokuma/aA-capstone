@@ -1,18 +1,24 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { createCommentThunk, getPinThunk } from "../../store/pins";
+import { useState, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
+import {
+  createCommentThunk,
+  getPinThunk,
+  deleteCommentThunk,
+} from "../../store/pins"
 import Comment from "./comment"
+
+import "./Pin.css"
 
 const Pin = () => {
   const dispatch = useDispatch()
-  const { pinId } = useParams();
+  const { pinId } = useParams()
   const state = useSelector((state) => state)
   const user = state.session.user
   const pin = state.pins[pinId]
 
-  const [text, setText] = useState('')
-  const [errors, setErrors] = useState({});
+  const [text, setText] = useState("")
+  const [errors, setErrors] = useState({})
 
   useEffect(() => {
     dispatch(getPinThunk(pinId))
@@ -23,38 +29,57 @@ const Pin = () => {
     const comment = {
       userId: user.id,
       pinId: pinId,
-      text: text
+      text: text,
     }
     if (text) {
-      await dispatch(createCommentThunk(comment)).then(setText(''))
+      await dispatch(createCommentThunk(comment)).then(setText(""))
     }
-    console.log('test');
-    setText('')
+    console.log("test")
+    setText("")
   }
 
+  let numComments
+  if (pin?.comments) numComments = pin.comments.length
+  else numComments = 0
+
   return (
-    <div>
-      <img src={pin?.image} alt={null}></img>
-      <div>
-        <div>{pin?.link}</div>
-        <div>{pin?.title}</div>
-        <div>{pin?.description}</div>
-        <div>{pin?.user.username}</div>
-        <h2>Comments</h2>
-        {pin?.comments?.map((comment) => (
-          <Comment comment={comment}/>
-        ))}
-        <form onSubmit={handleSubmit}>
-          <textarea
-            placeholder="Add a comment"
-            value={text}
-            onChange={(e) => setText(e.target.value)}>
-          </textarea>
-          <button
-            className="post-comment">
-            Post your comment!
-          </button>
-        </form>
+    <div className="pin-container">
+      <div className="pin-half pin-image">
+        <img src={pin?.image} alt={null} />
+      </div>
+      <div className="pin-half pin-text">
+        <div className="about-container">
+          <a className="link" href={`https://${pin?.link}`}>
+            {pin?.link}
+          </a>
+          <h2 className="title">{pin?.title}</h2>
+          <div className="description">{pin?.description}</div>
+          <h3 className="poster">{pin?.user.username}</h3>
+        </div>
+        <div className="comments-container">
+          <div>
+            <h3 className="comments">
+              {numComments === 0 && "Comments"}
+              {numComments === 1 && `${numComments} Comment`}
+              {numComments > 1 && `${numComments} Comments`}
+            </h3>
+            {numComments === 0 && (
+              <p>No comments yet! Add one to start the conversation.</p>
+            )}
+            {pin?.comments?.map((comment) => (
+              <Comment comment={comment} />
+            ))}
+          </div>
+          <div className="new-comment-container">
+            <form onSubmit={handleSubmit}>
+              <textarea
+                placeholder="Add a comment"
+                value={text}
+                onChange={(e) => setText(e.target.value)}></textarea>
+              <button className="post-comment">Post your comment!</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   )
