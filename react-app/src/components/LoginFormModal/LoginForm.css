@@ -13,3 +13,18 @@
   display: flex;
   flex-direction: column;
 }
+
+.demo-user-button {
+  margin: 2em;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+.demo-user-button:hover {
+  cursor: pointer;
+}
+
+.errors {
+  color: red;
+  font-size: 16px;
+}

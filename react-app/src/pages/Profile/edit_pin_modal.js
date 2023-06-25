@@ -35,7 +35,7 @@ const UpdatePinModal = ({ pin }) => {
           <label>
             Title
             <input
-              className="title"
+              className="title-edit"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -43,8 +43,8 @@ const UpdatePinModal = ({ pin }) => {
           </label>
           <label>
             Description
-            <input
-              className="description"
+            <textarea
+              className="description-edit"
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -53,7 +53,7 @@ const UpdatePinModal = ({ pin }) => {
           <label>
             Website
             <input
-              className="link"
+              className="link-edit"
               type="text"
               value={link}
               onChange={(e) => setLink(e.target.value)}

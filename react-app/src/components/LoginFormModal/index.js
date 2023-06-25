@@ -25,7 +25,7 @@ function LoginFormModal() {
     <div className="login-modal">
       <h1>Welcome to Pinterest</h1>
       <form onSubmit={handleSubmit}>
-        <ul>
+        <ul className="errors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
@@ -50,8 +50,8 @@ function LoginFormModal() {
         </label>
         <button type="submit">Log In</button>
       </form>
-      <h2
-        id="demo-user-button"
+      <button
+        className="demo-user-button"
         onClick={() => {
           dispatch(login("demo@aa.io", "password"))
             .then(closeModal)
@@ -63,7 +63,7 @@ function LoginFormModal() {
             })
         }}>
         Demo User
-      </h2>
+      </button>
     </div>
   )
 }

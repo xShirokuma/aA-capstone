@@ -19,6 +19,7 @@
 }
 
 #modal-content {
+  max-height: 700px;
   border-radius: 20px;
   padding: 2em;
   position: absolute;

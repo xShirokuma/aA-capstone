@@ -1,4 +1,4 @@
 from .login_form import LoginForm
 from .signup_form import SignUpForm
-from .pin_form import PinForm
+from .create_pin_form import CreatePinForm
 from .comment_form import CommentForm

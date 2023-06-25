@@ -1,8 +1,11 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import PinTiles from "./pin_tiles"
 import { getPinsThunk } from "../../store/pins"
+import Splash from "./splash"
+
+import "./Home.css"
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -12,11 +15,12 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getPinsThunk())
-  }, [dispatch]);
+  }, [dispatch])
 
   return (
     <>
-      <PinTiles pins={pins} />
+      {!user && <Splash />}
+      {user && <PinTiles pins={pins} />}
     </>
   )
 }

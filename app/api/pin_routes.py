@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import current_user, login_required
 
 from ..models import db, Pin, User
-from ..forms import PinForm
+from ..forms import CreatePinForm
 from ..utils.aws import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 pin_routes = Blueprint("pins", __name__)
@@ -11,7 +11,7 @@ pin_routes = Blueprint("pins", __name__)
 @pin_routes.route("/", methods=["POST"])
 @login_required
 def create_pin():
-    form = PinForm()
+    form = CreatePinForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     image = request.files["image"]
     print("test pre validate")
@@ -54,7 +54,7 @@ def create_pin():
 @login_required
 def update_pin(pin_id):
     pin = Pin.query.get(pin_id)
-    form = PinForm()
+    form = CreatePinForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     pin.title = form.data["title"]
@@ -70,6 +70,8 @@ def update_pin(pin_id):
 def delete_pin(pin_id):
     pin = Pin.query.get(pin_id)
     deleted_pin = {"pin": pin.to_dict()}
+    was_deleted = remove_file_from_s3(pin.image_filename)
+    print(was_deleted)
     db.session.delete(pin)
     db.session.commit()
     return deleted_pin

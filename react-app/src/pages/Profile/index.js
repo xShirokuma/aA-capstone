@@ -21,10 +21,10 @@ const Profile = () => {
         <h1>{username}</h1>
         <h4>@{username}</h4>
       </div>
-      <nav className="profile-navbar">
+      {/* <nav className="profile-navbar">
         <NavLink to={`/${username}/_created`}>Created</NavLink>
         <NavLink to={`/${username}/_saved`}>Saved</NavLink>
-      </nav>
+      </nav> */}
       <PinTiles pins={pins} />
     </div>
   )

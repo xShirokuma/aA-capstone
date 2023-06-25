@@ -34,7 +34,7 @@ function SignupFormModal() {
       <h1>Welcome to Pinterest</h1>
       <h4>Find new ideas to try</h4>
       <form onSubmit={handleSubmit}>
-        <ul>
+        <ul className="errors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
@@ -42,7 +42,7 @@ function SignupFormModal() {
         <label>
           Email
           <input
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
