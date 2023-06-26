@@ -45,12 +45,18 @@
   resize: none;
 }
 
-.edit-pin-contents-left > * {
+.edit-pin-contents-left > label {
   padding: 1em;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-top: 1px solid lightgray;
 }
+
+.edit-pin-contents-left input {
+  padding: 0.5em;
+}
+
 
 .edit-pin-contents-right {
   padding: 0em 1em
@@ -63,6 +69,7 @@
 }
 
 .modal-buttons {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -87,4 +94,68 @@
 
 .profile-navbar .active {
   border-bottom: 2px solid gray;
+}
+
+.delete-pin-button {
+  width: 5em;
+  height: 3em;
+  background-color: lightgray;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.cancel-edit-pin {
+  width: 5em;
+  height: 3em;
+  background-color: lightgray;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.save-edit-pin {
+  width: 5em;
+  height: 3em;
+  background-color: #e60022;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.delete-pin-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-pin-modal-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.cancel-delete-pin {
+  width: 5em;
+  height: 3em;
+  background-color: lightgray;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.delete-pin {
+  width: 5em;
+  height: 3em;
+  background-color: #e60022;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.edit-pin-modal-buttons {
+  display: flex;
+  gap: 10px;
 }

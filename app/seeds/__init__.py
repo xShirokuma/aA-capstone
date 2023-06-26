@@ -31,4 +31,4 @@ def seed():
 def undo():
     undo_users()
     undo_pins()
-    undo_comments
+    undo_comments()

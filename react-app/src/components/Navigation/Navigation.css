@@ -15,15 +15,26 @@ ul {
 }
 
 .profile-dropdown {
+  padding: 0.5em;
   position: absolute;
+  min-width: 120px;
   z-index: 10;
   right: 1em;
   top: 3.5em;
   display: flex;
   flex-direction: column;
+  gap: 0.25em;
   background-color: white;
   border-radius: 10px;
   box-shadow: grey 0px 0px 12px;
+}
+
+.profile-dropdown > * {
+  width: 100%;
+}
+
+.profile-dropdown button {
+  width: 100%;
 }
 
 .profile-dropdown-button > button {
@@ -31,7 +42,7 @@ ul {
 }
 
 .nav-bar form {
-  flex: .75 1;
+  flex: .6 1;
 }
 
 .search-bar {
@@ -67,4 +78,52 @@ ul {
 .nav-button {
   padding: 1em;
   border-radius: 50px;
+}
+
+.login-button {
+  width: 5em;
+  height: 3em;
+  background-color: #e60022;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.signup-button {
+    width: 5em;
+    height: 3em;
+    background-color: lightgray;
+    font-size: 14px;
+    border: none;
+    border-radius: 25px;
+}
+
+.nav-bar-left {
+  padding-right: 2em;
+  display: flex;
+  justify-content: space-between;
+  flex: 0.2;
+}
+
+.nav-bar-right {
+  padding-left: 2em;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex: 0.2;
+}
+
+.logout-button {
+  font-size: 16px;
+  border: none;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.logout-button:hover {
+  background-color: lightgray;
 }

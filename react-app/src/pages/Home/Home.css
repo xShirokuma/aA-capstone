@@ -17,12 +17,16 @@
 }
 
 .splash-content {
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url("./assets/spash_background.jpeg");
+  background-size: cover;
 }
 
-.splash-content > * {
-  font-size: 50px;
+.splash-content > h1 {
+  font-size: 60px;
+  text-shadow: 0 0 6px red;
 }

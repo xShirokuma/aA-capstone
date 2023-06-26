@@ -54,9 +54,8 @@ const PinForm = ({ pin, formType }) => {
     if (Object.keys(errorHandler).length !== 0) {
       return false
     } else return true
-  }, [attemptSubmitted, title, description, link])
+  }, [attemptSubmitted, title, description, link, image])
 
-  //
   useEffect(() => {
     validateErrors()
   }, [validateErrors])
@@ -107,7 +106,7 @@ const PinForm = ({ pin, formType }) => {
           <label>
             <input type="file" onChange={(e) => setImage(e.target.files[0])} />
           </label>
-          <img className="image-preview" src={preview}></img>
+          {image && <img className="image-preview" src={preview} />}
         </div>
         <div className="text-upload-container">
           <input

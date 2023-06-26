@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { login } from "../../store/session"
 import { useDispatch } from "react-redux"
 import { useModal } from "../../context/Modal"
+import skinner_box from "../../assets/skinner_box.png"
 import "./LoginForm.css"
 
 function LoginFormModal() {
@@ -23,8 +24,9 @@ function LoginFormModal() {
 
   return (
     <div className="login-modal">
-      <h1>Welcome to Pinterest</h1>
-      <form onSubmit={handleSubmit}>
+      <img className="logo-img-signup" alt="logo" src={skinner_box} />
+      <h1>Pinstant Gratification</h1>
+      <form className="login-form" onSubmit={handleSubmit}>
         <ul className="errors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
@@ -48,7 +50,9 @@ function LoginFormModal() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <button className="login-submit-button" type="submit">
+          Log In
+        </button>
       </form>
       <button
         className="demo-user-button"

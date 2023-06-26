@@ -68,3 +68,44 @@
 .comments textarea {
   resize: none;
 }
+
+.edit-comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.edit-comment-form textarea {
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.edit-comment-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancel-edit {
+    width: 5em;
+    height: 3em;
+    background-color: lightgray;
+    font-size: 14px;
+    border: none;
+    border-radius: 25px;
+}
+
+.save-edit {
+  width: 5em;
+  height: 3em;
+  background-color: lightgray;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

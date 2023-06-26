@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useModal } from "../../context/Modal"
 import { signUp } from "../../store/session"
+import skinner_box from "../../assets/skinner_box.png"
 import "./SignupForm.css"
 
 function SignupFormModal() {
@@ -31,9 +32,10 @@ function SignupFormModal() {
 
   return (
     <div className="signup-modal">
-      <h1>Welcome to Pinterest</h1>
-      <h4>Find new ideas to try</h4>
-      <form onSubmit={handleSubmit}>
+      <img className="logo-img-signup" alt="logo" src={skinner_box} />
+      <h1>Pinstant Gratification</h1>
+      <h4>Find new ways to waste time</h4>
+      <form className="signup-form" onSubmit={handleSubmit}>
         <ul className="errors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
@@ -42,7 +44,9 @@ function SignupFormModal() {
         <label>
           Email
           <input
+            className="signup-email-input"
             type="email"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -51,7 +55,9 @@ function SignupFormModal() {
         <label>
           Username
           <input
+            className="signup-username-input"
             type="text"
+            placeholder="Choose a username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -60,7 +66,9 @@ function SignupFormModal() {
         <label>
           Password
           <input
+            className="signup-password-input"
             type="password"
+            placeholder="Create a password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -69,13 +77,16 @@ function SignupFormModal() {
         <label>
           Confirm Password
           <input
+            className="signup-password-input"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
         </label>
-        <button type="submit">Sign Up</button>
+        <button className="signup-submit-button" type="submit">
+          Continue
+        </button>
       </form>
     </div>
   )

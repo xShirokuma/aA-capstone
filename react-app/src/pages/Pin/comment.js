@@ -58,7 +58,10 @@ const Comment = ({ comment }) => {
         <>
           {!editable && (
             <div>
-              <p>{comment?.text}</p>
+              <div className="comment">
+                <h4>{comment?.user.username}</h4>
+                <p>{comment?.text}</p>
+              </div>
               <button
                 className="edit-comment"
                 type="submit"
@@ -73,26 +76,29 @@ const Comment = ({ comment }) => {
             </div>
           )}
           {editable && (
-            <form onSubmit={handleSubmit}>
+            <form className="edit-comment-form" onSubmit={handleSubmit}>
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}></textarea>
               <div className="errors"> {errors.text}</div>
-              <button
-                className="cancel-edit"
-                value={editable}
-                onClick={() => setEditable(false)}>
-                Cancel
-              </button>
-              <button className="save-edit" type="submit">
-                Save
-              </button>
+              <div className="edit-comment-form-buttons">
+                <button
+                  className="cancel-edit"
+                  value={editable}
+                  onClick={() => setEditable(false)}>
+                  Cancel
+                </button>
+                <button className="save-edit" type="submit">
+                  Save
+                </button>
+              </div>
             </form>
           )}
         </>
       )}
       {!userComment && (
-        <div>
+        <div className="comment">
+          <h4>{comment?.user.username}</h4>
           <p>{comment?.text}</p>
         </div>
       )}
