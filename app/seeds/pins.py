@@ -1,7 +1,8 @@
 from app.models import db, Pin, environment, SCHEMA
 from sqlalchemy.sql import text
 import os, io
-from PIL import Image
+
+# from PIL import Image
 from ..utils.aws import get_unique_filename, upload_file_to_s3
 
 
