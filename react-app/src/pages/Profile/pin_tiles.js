@@ -7,14 +7,14 @@ const PinTiles = ({ pins }) => {
   pins = Object.values(pins)
 
   return (
-    <div className="feed-container">
+    <div className="profile-created-container">
       {pins?.map((pin) => (
-        <div>
+        <div className="created-pin">
           <PinTile pin={pin} />
           <OpenModalButton
+            className="edit-pin-button"
             buttonText="Edit"
-            modalComponent={<EditPinModal pin={pin} />}
-          />
+            modalComponent={<EditPinModal pin={pin} />}></OpenModalButton>
         </div>
       ))}
     </div>

@@ -1,6 +1,32 @@
 .feed-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, var(--card_width));
-  grid-auto-rows: var(--row_increment);
+  grid-template-columns: repeat(auto-fit, minmax(10px, 300px));
   justify-content: center;
+  gap: 0.5%;
+}
+
+.feed-pin {
+  display: flex;
+  flex-direction: column;
+}
+
+.feed-pin img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.splash-content {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./assets/spash_background.jpeg");
+  background-size: cover;
+}
+
+.splash-content > h1 {
+  font-size: 60px;
+  text-shadow: 0 0 6px red;
 }

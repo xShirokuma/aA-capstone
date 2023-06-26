@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import current_user, login_required
 
 from ..models import db, Pin, User
-from ..forms import PinForm
+from ..forms import CreatePinForm, EditPinForm
 from ..utils.aws import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 pin_routes = Blueprint("pins", __name__)
@@ -11,7 +11,7 @@ pin_routes = Blueprint("pins", __name__)
 @pin_routes.route("/", methods=["POST"])
 @login_required
 def create_pin():
-    form = PinForm()
+    form = CreatePinForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     image = request.files["image"]
     print("test pre validate")
@@ -53,16 +53,16 @@ def create_pin():
 @pin_routes.route("/<int:pin_id>", methods=["PUT"])
 @login_required
 def update_pin(pin_id):
-    pin = Pin.query.get(pin_id)
-    form = PinForm()
+    form = EditPinForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
+    if form.validate_on_submit():
+        pin = Pin.query.get(pin_id)
+        pin.title = form.data["title"]
+        pin.description = form.data["description"]
+        pin.link = form.data["link"]
 
-    pin.title = form.data["title"]
-    pin.description = form.data["description"]
-    pin.link = form.data["link"]
-
-    db.session.commit()
-    return {"pin": pin.to_dict()}
+        db.session.commit()
+        return {"pin": pin.to_dict()}
 
 
 @pin_routes.route("/<int:pin_id>", methods=["DELETE"])
@@ -70,6 +70,8 @@ def update_pin(pin_id):
 def delete_pin(pin_id):
     pin = Pin.query.get(pin_id)
     deleted_pin = {"pin": pin.to_dict()}
+    was_deleted = remove_file_from_s3(pin.image_filename)
+    print(was_deleted)
     db.session.delete(pin)
     db.session.commit()
     return deleted_pin

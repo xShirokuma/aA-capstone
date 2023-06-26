@@ -4,12 +4,37 @@
   align-items: center;
 }
 
-.signup-modal > form {
+.signup-form {
   display: flex;
   flex-direction: column;
+  gap: 1em;
 }
 
-.signup-modal form > label {
+.signup-form > label {
   display: flex;
   flex-direction: column;
+  gap: 0.25em;
+}
+
+.signup-form input {
+  padding: 0.5em;
+  border-radius: 10px;
+}
+
+.signup-form input:focus {
+  box-shadow: 0 0 2px 4px #92c1ff;
+}
+
+.signup-submit-button {
+  height: 3em;
+  background-color: #e60022;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.logo-img-signup {
+  height: 100px;
+  width: 100px;
 }

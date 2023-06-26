@@ -26,7 +26,7 @@
   grid-template-columns: 3fr 1fr;
 }
 
-.edit-pin-contents input {
+.edit-pin-contents input, .edit-pin-contents textarea {
   min-width: 60%
 }
 
@@ -36,12 +36,27 @@
   flex-direction: column;
 }
 
-.edit-pin-contents-left > * {
+.edit-pin-contents-left input, .edit-pin-contents-left textarea {
+  border: 2px solid lightgrey;
+  border-radius: 8px;
+}
+
+.edit-pin-contents-left textarea {
+  resize: none;
+}
+
+.edit-pin-contents-left > label {
   padding: 1em;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-top: 1px solid lightgray;
 }
+
+.edit-pin-contents-left input {
+  padding: 0.5em;
+}
+
 
 .edit-pin-contents-right {
   padding: 0em 1em
@@ -54,6 +69,93 @@
 }
 
 .modal-buttons {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.profile-created-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  gap: 0.5%;
+  justify-content: center;
+}
+
+.created-pin {
+  display: flex;
+  flex-direction: column;
+}
+
+.created-pin img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.profile-navbar .active {
+  border-bottom: 2px solid gray;
+}
+
+.delete-pin-button {
+  width: 5em;
+  height: 3em;
+  background-color: lightgray;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.cancel-edit-pin {
+  width: 5em;
+  height: 3em;
+  background-color: lightgray;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.save-edit-pin {
+  width: 5em;
+  height: 3em;
+  background-color: #e60022;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.delete-pin-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-pin-modal-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.cancel-delete-pin {
+  width: 5em;
+  height: 3em;
+  background-color: lightgray;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.delete-pin {
+  width: 5em;
+  height: 3em;
+  background-color: #e60022;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.edit-pin-modal-buttons {
+  display: flex;
+  gap: 10px;
 }

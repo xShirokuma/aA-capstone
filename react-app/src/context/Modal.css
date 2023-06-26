@@ -19,7 +19,8 @@
 }
 
 #modal-content {
-  border-radius: 20px;
+  max-height: 700px;
+  border-radius: 30px;
   padding: 2em;
   position: absolute;
   background-color:white;

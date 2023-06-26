@@ -6,7 +6,9 @@ const PinTiles = ({ pins }) => {
   return (
     <div className="feed-container">
       {pins?.map((pin) => (
-        <PinTile pin={pin} key={pin.id} />
+        <div className="feed-pin">
+          <PinTile pin={pin} key={pin.id} />
+        </div>
       ))}
     </div>
   )

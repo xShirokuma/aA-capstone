@@ -36,6 +36,76 @@
   flex-grow: 1;
 }
 
+.new-comment-container {
+  border-top: 1px solid lightgray;
+}
+
 .new-comment-container > form {
   display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.new-comment-container textarea {
+  width: 80%;
+  padding: 1em;
+  background-color: lightgray;
+  border: none;
+  border-radius: 30px;
+  resize: none;
+}
+
+.new-comment-container button {
+  width: 5em;
+  height: 3em;
+  background-color: #e60022;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+}
+
+.comments textarea {
+  resize: none;
+}
+
+.edit-comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.edit-comment-form textarea {
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.edit-comment-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancel-edit {
+    width: 5em;
+    height: 3em;
+    background-color: lightgray;
+    font-size: 14px;
+    border: none;
+    border-radius: 25px;
+}
+
+.save-edit {
+  width: 5em;
+  height: 3em;
+  background-color: lightgray;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
