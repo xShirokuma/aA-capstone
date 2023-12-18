@@ -1,6 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
-from .save import saves
+from .user_saves import user_saves
 
 
 class Pin(db.Model):
@@ -24,13 +24,9 @@ class Pin(db.Model):
     comments = db.relationship(
         "Comment", back_populates="pin", cascade="all, delete-orphan"
     )
-    boards = db.relationship(
-        "Board", back_populates="pin", cascade="all, delete-orphan"
-    )
-    pin_saves = db.relationship(
-        "User",
-        secondary=saves,
-        back_populates="user_saves",
+
+    saved_users = db.relationship(
+        "User", secondary=user_saves, back_populates="saved_pins"
     )
 
     def to_dict(self):
@@ -45,4 +41,18 @@ class Pin(db.Model):
             "updatedAt": self.updated_at,
             "user": self.user.to_dict(),
             "comments": [comment.to_dict() for comment in self.comments],
+        }
+
+    def saved_pin_to_dict(self):
+        return {
+            "id": self.id,
+            "userId": self.user_id,
+            "title": self.title,
+            "description": self.description,
+            "link": self.link,
+            "image": self.image_filename,
+            "createdAt": self.created_at,
+            "updatedAt": self.updated_at,
+            # "user": self.user.to_dict(),
+            # "comments": [comment.to_dict() for comment in self.comments],
         }

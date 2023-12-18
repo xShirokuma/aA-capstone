@@ -1,7 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 
-saves = db.Table(
-    "saves",
+user_saves = db.Table(
+    "user_saves",
     db.Model.metadata,
     db.Column(
         "user_id",
@@ -18,4 +18,4 @@ saves = db.Table(
 )
 
 if environment == "production":
-    saves.schema = SCHEMA
+    user_saves.schema = SCHEMA

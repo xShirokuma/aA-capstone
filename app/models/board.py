@@ -18,11 +18,13 @@ class Board(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
     user = db.relationship("User", back_populates="boards")
+    board_saves = db.relationship("BoardSave", back_populates="board")
 
     def to_dict(self):
         return {
             "id": self.id,
             "name": self.name,
             "description": self.description,
-            "user": self.user.to_dict(),
+            # "user": self.user.to_dict(),
+            "boardSaves": [board_save.to_dict() for board_save in self.board_saves],
         }

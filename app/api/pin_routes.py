@@ -70,8 +70,8 @@ def update_pin(pin_id):
 def delete_pin(pin_id):
     pin = Pin.query.get(pin_id)
     deleted_pin = {"pin": pin.to_dict()}
-    was_deleted = remove_file_from_s3(pin.image_filename)
-    print(was_deleted)
+    # was_deleted = remove_file_from_s3(pin.image_filename)
+    # print(was_deleted)
     db.session.delete(pin)
     db.session.commit()
     return deleted_pin
