@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import { SaveButton } from "../../components"
-import "./PinTile.css"
+import "./SaveTile.css"
 
-const PinTiles = ({ pin }) => {
+const SaveTile = ({ pin }) => {
   return (
     <>
-      <Link to={`/pin/${pin.id}`} className="pin-tile" key={pin.id}>
+      <Link to={`pin/${pin.id}`} className="pin-tile" key={pin.id}>
         <img src={pin.image} alt={"pin"}></img>
       </Link>
       <SaveButton pin={pin} />
@@ -13,4 +13,4 @@ const PinTiles = ({ pin }) => {
   )
 }
 
-export default PinTiles
+export default SaveTile

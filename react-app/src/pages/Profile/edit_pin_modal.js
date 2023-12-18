@@ -7,7 +7,7 @@ import { OpenModalButton } from "../../components"
 import { updatePinThunk } from "../../store/pins"
 import DeletePinModal from "./delete_pin_modal"
 
-const UpdatePinModal = ({ pin }) => {
+const EditPinModal = ({ pin }) => {
   const dispatch = useDispatch()
   const history = useHistory
   const { closeModal } = useModal()
@@ -117,4 +117,4 @@ const UpdatePinModal = ({ pin }) => {
   )
 }
 
-export default UpdatePinModal
+export default EditPinModal
